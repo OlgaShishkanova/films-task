@@ -1,21 +1,22 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./shared/MainLayout";
 import Home from "./pages/Home/Home";
+import MoviesList from "./pages/MoviesList/MoviesList";
 
 const RoutesComponent: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route
-          path="/words-list"
+        <Route
+          path="/movies-list"
           element={
             <MainLayout>
-              <WordsList />
+              <MoviesList />
             </MainLayout>
           }
         />
-        <Route
+        {/* <Route
           path="/categories-list"
           element={
             <MainLayout>

@@ -27,7 +27,7 @@ const allFilmsWithVariablesQueryDocument = graphql(`
 
 export function TestPage1() {
   const { data } = useQuery({
-    queryKey: ["films"],
+    queryKey: ["test-films"],
     queryFn: async () =>
       request(
         "https://swapi-graphql.netlify.app/.netlify/functions/index",

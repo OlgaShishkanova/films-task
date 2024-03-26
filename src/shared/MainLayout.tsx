@@ -10,7 +10,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <NavigationBar />
-      <Container>{children}</Container>
+      <Container className="my-3">{children}</Container>
     </>
   );
 };

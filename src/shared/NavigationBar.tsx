@@ -9,7 +9,7 @@ const NavigationBar: React.FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/">Star Wars Movies</Nav.Link>
+            <Nav.Link href="/movies-list">Star Wars Movies</Nav.Link>
             <Nav.Link href="/characters">Characters</Nav.Link>
           </Nav>
         </Navbar.Collapse>
