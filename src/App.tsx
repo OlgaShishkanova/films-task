@@ -1,12 +1,15 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { TestPage1 } from "./pages/TestPage1";
+import "./assets/scss/index.scss";
+import RoutesComponent from "./RoutesComponent";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}><TestPage1/></QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <RoutesComponent />
+    </QueryClientProvider>
   );
 }
 
