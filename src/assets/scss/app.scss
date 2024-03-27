@@ -1,0 +1,11 @@
+.badge {
+  &--absolute {
+    position: absolute;
+    right: 1rem;
+  }
+}
+.character {
+  &__feature {
+    width: 32%;
+  }
+}

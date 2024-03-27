@@ -2,6 +2,7 @@ import React from "react";
 import { Badge, ListGroup } from "react-bootstrap";
 import { FragmentType, useFragment } from "../../../gql";
 import { FilmFragment } from "../../../graphqlSchemas/graphqlSchemas";
+import { getYear } from "../../../helpers/helpers";
 
 interface Props {
   film: FragmentType<typeof FilmFragment>;
@@ -21,7 +22,7 @@ const MoviesListItem: React.FC<Props> = (props) => {
         {film.openingCrawl}
       </div>
       <Badge bg="secondary" text="primary" pill>
-        {film.releaseDate}
+        {getYear(film.releaseDate)}
       </Badge>
     </ListGroup.Item>
   );

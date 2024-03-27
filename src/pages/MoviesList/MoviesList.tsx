@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
 import { ListGroup } from "react-bootstrap";
 import MoviesListItem from "./components/MoviesListItem";
+import Loader from "../../shared/Loader";
 
 const MoviesList: React.FC = () => {
   const { data, isLoading } = useQuery({
@@ -17,7 +18,7 @@ const MoviesList: React.FC = () => {
   });
 
   return (
-    <div>
+    <>
       <h2>Star Wars Movies List</h2>
       {data ? (
         <ListGroup as="ol" numbered>
@@ -29,9 +30,9 @@ const MoviesList: React.FC = () => {
           })}
         </ListGroup>
       ) : (
-        <>{isLoading ? <div>Loader</div> : <div>No films</div>}</>
+        <>{isLoading ? <Loader /> : <div>No films</div>}</>
       )}
-    </div>
+    </>
   );
 };
 
