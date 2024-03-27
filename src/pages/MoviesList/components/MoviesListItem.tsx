@@ -11,10 +11,9 @@ const MoviesListItem: React.FC<Props> = (props) => {
   const film = useFragment(FilmFragment, props.film);
   return (
     <ListGroup.Item
-      as="li"
       className="d-flex justify-content-between align-items-start"
       action
-      href="#link1"
+      href={`/movie/${film.id}`}
     >
       <div className="ms-2 me-auto">
         <div className="fw-bold">{film.title}</div>

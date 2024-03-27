@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./shared/MainLayout";
 import Home from "./pages/Home/Home";
 import MoviesList from "./pages/MoviesList/MoviesList";
+import Movie from "./pages/Movie/Movie";
 
 const RoutesComponent: React.FC = () => {
   return (
@@ -16,14 +17,14 @@ const RoutesComponent: React.FC = () => {
             </MainLayout>
           }
         />
-        {/* <Route
-          path="/categories-list"
+        <Route
+          path="/movie/:id"
           element={
             <MainLayout>
-              <CategoriesList />
+              <Movie />
             </MainLayout>
           }
-        /> */}
+        />
         <Route
           path="/"
           element={

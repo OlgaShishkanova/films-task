@@ -6,13 +6,14 @@ import { ListGroup } from "react-bootstrap";
 import MoviesListItem from "./components/MoviesListItem";
 
 const MoviesList: React.FC = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["films"],
-    queryFn: async () =>
-      request(
+    queryFn: async () => {
+      return request(
         "https://swapi-graphql.netlify.app/.netlify/functions/index",
         allFilmsQueryDocument
-      ),
+      );
+    },
   });
 
   return (
@@ -28,7 +29,7 @@ const MoviesList: React.FC = () => {
           })}
         </ListGroup>
       ) : (
-        <div>No films</div>
+        <>{isLoading ? <div>Loader</div> : <div>No films</div>}</>
       )}
     </div>
   );
