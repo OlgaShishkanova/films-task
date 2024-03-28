@@ -36,8 +36,6 @@ export const CharacterFragment = graphql(`
     }
     species {
       name
-      language
-      id
     }
     eyeColor
   }
@@ -55,6 +53,22 @@ export const oneFilmQueryDocument = graphql(`
       characterConnection {
         characters {
           ...CharacterItem
+        }
+      }
+    }
+  }
+`);
+
+export const oneCharacterQueryDocument = graphql(`
+  query oneCharacterQuery($id: ID) {
+    person(id: $id) {
+      ...CharacterItem
+      filmConnection {
+        films {
+          title
+          director
+          releaseDate
+          id
         }
       }
     }

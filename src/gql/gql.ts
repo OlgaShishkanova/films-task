@@ -15,8 +15,9 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n  fragment FilmItem on Film {\n    id\n    title\n    releaseDate\n    openingCrawl\n    director\n  }\n": types.FilmItemFragmentDoc,
     "\n  query allFilmsQuery {\n    allFilms {\n      edges {\n        node {\n          ...FilmItem\n        }\n        cursor\n      }\n    }\n  }\n": types.AllFilmsQueryDocument,
-    "\n  fragment CharacterItem on Person {\n    id\n    name\n    birthYear\n    gender\n    hairColor\n    height\n    homeworld {\n      name\n    }\n    species {\n      name\n      language\n      id\n    }\n    eyeColor\n  }\n": types.CharacterItemFragmentDoc,
+    "\n  fragment CharacterItem on Person {\n    id\n    name\n    birthYear\n    gender\n    hairColor\n    height\n    homeworld {\n      name\n    }\n    species {\n      name\n    }\n    eyeColor\n  }\n": types.CharacterItemFragmentDoc,
     "\n  query oneFilmQuery($id: ID) {\n    film(id: $id) {\n      id\n      director\n      producers\n      releaseDate\n      title\n      openingCrawl\n      characterConnection {\n        characters {\n          ...CharacterItem\n        }\n      }\n    }\n  }\n": types.OneFilmQueryDocument,
+    "\n  query oneCharacterQuery($id: ID) {\n    person(id: $id) {\n      ...CharacterItem\n      filmConnection {\n        films {\n          title\n          director\n          releaseDate\n          id\n        }\n      }\n    }\n  }\n": types.OneCharacterQueryDocument,
     "\n  query allFilmsWithVariablesQuery($first: Int!) {\n    allFilms(first: $first) {\n      edges {\n        node {\n          title\n          director\n          releaseDate\n          speciesConnection {\n            species {\n              name\n              classification\n              homeworld {\n                name\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": types.AllFilmsWithVariablesQueryDocument,
 };
 
@@ -45,11 +46,15 @@ export function graphql(source: "\n  query allFilmsQuery {\n    allFilms {\n    
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment CharacterItem on Person {\n    id\n    name\n    birthYear\n    gender\n    hairColor\n    height\n    homeworld {\n      name\n    }\n    species {\n      name\n      language\n      id\n    }\n    eyeColor\n  }\n"): (typeof documents)["\n  fragment CharacterItem on Person {\n    id\n    name\n    birthYear\n    gender\n    hairColor\n    height\n    homeworld {\n      name\n    }\n    species {\n      name\n      language\n      id\n    }\n    eyeColor\n  }\n"];
+export function graphql(source: "\n  fragment CharacterItem on Person {\n    id\n    name\n    birthYear\n    gender\n    hairColor\n    height\n    homeworld {\n      name\n    }\n    species {\n      name\n    }\n    eyeColor\n  }\n"): (typeof documents)["\n  fragment CharacterItem on Person {\n    id\n    name\n    birthYear\n    gender\n    hairColor\n    height\n    homeworld {\n      name\n    }\n    species {\n      name\n    }\n    eyeColor\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query oneFilmQuery($id: ID) {\n    film(id: $id) {\n      id\n      director\n      producers\n      releaseDate\n      title\n      openingCrawl\n      characterConnection {\n        characters {\n          ...CharacterItem\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query oneFilmQuery($id: ID) {\n    film(id: $id) {\n      id\n      director\n      producers\n      releaseDate\n      title\n      openingCrawl\n      characterConnection {\n        characters {\n          ...CharacterItem\n        }\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query oneCharacterQuery($id: ID) {\n    person(id: $id) {\n      ...CharacterItem\n      filmConnection {\n        films {\n          title\n          director\n          releaseDate\n          id\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query oneCharacterQuery($id: ID) {\n    person(id: $id) {\n      ...CharacterItem\n      filmConnection {\n        films {\n          title\n          director\n          releaseDate\n          id\n        }\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

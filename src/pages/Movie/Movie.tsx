@@ -6,7 +6,7 @@ import { oneFilmQueryDocument } from "../../graphqlSchemas/graphqlSchemas";
 import Loader from "../../shared/Loader";
 import { getYear } from "../../helpers/helpers";
 import { Card } from "react-bootstrap";
-import CharactersList from "./CharactersList";
+import CharactersList from "./components/CharactersList";
 
 const Movie: React.FC = () => {
   const params = useParams();
@@ -34,7 +34,7 @@ const Movie: React.FC = () => {
     const characters = film.characterConnection?.characters;
     return (
       <>
-        <Card bg="dark" text="light" border="secondary" className="mb-2">
+        <Card className="custom-card--dark mb-2">
           <Card.Body>
             <Card.Title>
               {film.title} ({getYear(film.releaseDate)})
@@ -42,13 +42,13 @@ const Movie: React.FC = () => {
             <Card.Subtitle className="mb-2">by {film.director}</Card.Subtitle>
           </Card.Body>
         </Card>
-        <Card bg="dark" text="light" border="secondary" className="mb-2">
+        <Card className="custom-card--dark mb-2">
           <Card.Body>
             <Card.Subtitle className="mb-2">Description</Card.Subtitle>
             <Card.Text>{film.openingCrawl}</Card.Text>
           </Card.Body>
         </Card>
-        <Card bg="dark" text="light" border="secondary" className="mb-2">
+        <Card className="custom-card--dark mb-2">
           <Card.Body>
             <Card.Subtitle className="mb-2">Producers</Card.Subtitle>
             {film.producers?.map((producer) => {
@@ -56,9 +56,9 @@ const Movie: React.FC = () => {
             })}
           </Card.Body>
         </Card>
-        <Card bg="dark" text="light" border="secondary" className="mb-2">
+        <Card className="custom-card--dark mb-2">
           <Card.Body>
-          <Card.Subtitle className="mb-2">Characters</Card.Subtitle>
+            <Card.Subtitle className="mb-2">Characters</Card.Subtitle>
             {characters ? <CharactersList characters={characters} /> : null}
           </Card.Body>
         </Card>

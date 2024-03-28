@@ -13,3 +13,10 @@
     overflow: auto;
   }
 }
+.custom-card {
+  &--dark {
+    background-color: $dark;
+    color: $light;
+    border-color: $secondary;
+  }
+}
