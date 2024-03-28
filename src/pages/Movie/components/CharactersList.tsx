@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, ListGroup } from "react-bootstrap";
 import { FragmentType, useFragment } from "../../../gql";
 import { CharacterFragment } from "../../../graphqlSchemas/graphqlSchemas";
-import { CharacterFeaturesTitle } from "../../../types/enums";
+import { CharacterFeaturesTitle, NotApplicable } from "../../../types/enums";
 
 interface Props {
   characters: Array<FragmentType<typeof CharacterFragment> | null>;
@@ -29,30 +29,30 @@ const CharactersList: React.FC<Props> = (props) => {
                 <div className="d-flex justify-content-between flex-wrap">
                   <ListGroup className="character__feature">
                     <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.Gender}:</b> {character.gender}
+                      <b>{CharacterFeaturesTitle.Gender}:</b> {character.gender || NotApplicable.NA}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.Height}:</b> {character.height}
+                      <b>{CharacterFeaturesTitle.Height}:</b> {character.height || NotApplicable.NA}
                     </ListGroup.Item>
                   </ListGroup>
                   <ListGroup className="character__feature">
                     <ListGroup.Item>
                       <b>{CharacterFeaturesTitle.EyeColor}:</b>{" "}
-                      {character.eyeColor}
+                      {character.eyeColor || NotApplicable.NA}
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <b>{CharacterFeaturesTitle.HairColor}:</b>{" "}
-                      {character.hairColor}
+                      {character.hairColor || NotApplicable.NA}
                     </ListGroup.Item>
                   </ListGroup>
                   <ListGroup className="character__feature">
                     <ListGroup.Item>
                       <b>{CharacterFeaturesTitle.HomeWorld}:</b>{" "}
-                      {character.homeworld?.name}
+                      {character.homeworld?.name || NotApplicable.NA}
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <b>{CharacterFeaturesTitle.SpeciesName}:</b>{" "}
-                      {character.species?.name || "N/A"}
+                      {character.species?.name || NotApplicable.NA}
                     </ListGroup.Item>
                   </ListGroup>
                 </div>
