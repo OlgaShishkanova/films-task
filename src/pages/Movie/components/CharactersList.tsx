@@ -26,7 +26,7 @@ const CharactersList: React.FC<Props> = (props) => {
             <div className="ms-2 me-auto w-100">
               <div className="fw-bold">{character.name}</div>
               <div className="my-2 fst-italic">
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between flex-wrap">
                   <ListGroup className="character__feature">
                     <ListGroup.Item>
                       <b>{CharacterFeaturesTitle.Gender}:</b> {character.gender}
