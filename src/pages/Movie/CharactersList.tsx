@@ -12,9 +12,8 @@ const CharactersList: React.FC<Props> = (props) => {
     CharacterFragment,
     props.characters as Array<FragmentType<typeof CharacterFragment>>
   );
-  console.log({ characters });
   return (
-    <ListGroup>
+    <ListGroup className="character__list-group">
       {characters.map((character) => {
         return (
           <ListGroup.Item

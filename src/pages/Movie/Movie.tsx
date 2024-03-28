@@ -58,6 +58,7 @@ const Movie: React.FC = () => {
         </Card>
         <Card bg="dark" text="light" border="secondary" className="mb-2">
           <Card.Body>
+          <Card.Subtitle className="mb-2">Characters</Card.Subtitle>
             {characters ? <CharactersList characters={characters} /> : null}
           </Card.Body>
         </Card>

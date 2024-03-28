@@ -8,4 +8,8 @@
   &__feature {
     width: 32%;
   }
+  &__list-group {
+    max-height: 50vh;
+    overflow: auto;
+  }
 }
