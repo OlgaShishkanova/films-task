@@ -1,3 +1,26 @@
+.home {
+  background: black
+    url("https://e1.pxfuel.com/desktop-wallpaper/549/675/desktop-wallpaper-star-wars-star-backgrounds-%C2%B7%E2%91%A0-star-background.jpg")
+    repeat content-box;
+  min-height: 100vh;
+  &__info {
+    padding: 2rem 4rem;
+    position: absolute;
+    max-width: 50%;
+    top: 30%;
+    right: 20%;
+    border-radius: 1rem;
+    background-color: rgb(255, 232, 31, 0.9);
+    color: $black;
+    font-size: 1.2rem;
+  }
+  &__links {
+    a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
 .badge {
   &--absolute {
     position: absolute;
@@ -18,5 +41,34 @@
     background-color: $dark;
     color: $light;
     border-color: $secondary;
+  }
+}
+
+@media only screen and (max-width: 1230px) {
+  .home {
+    &__info {
+      max-width: 100%;
+      left: 5%;
+      right: 5%;
+    }
+  }
+}
+@media only screen and (max-height: 750px) {
+  .home {
+    &__info {
+      top: 5%;
+      max-width: 100%;
+      left: 5%;
+      right: 5%;
+    }
+  }
+}
+@media only screen and (max-height: 470px), screen and (max-width: 480px) {
+  .home {
+    &__info {
+      position: static;
+      margin-top: 2rem;
+      padding: 2rem;
+    }
   }
 }

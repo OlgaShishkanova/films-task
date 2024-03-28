@@ -34,14 +34,7 @@ const RoutesComponent: React.FC = () => {
             </MainLayout>
           }
         />
-        <Route
-          path="/"
-          element={
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          }
-        />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
