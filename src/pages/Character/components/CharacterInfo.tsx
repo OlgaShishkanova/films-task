@@ -52,7 +52,7 @@ const CharacterInfo: React.FC<Props> = (props) => {
           <ListGroup>
             {personFeatures.map((feature) => {
               return (
-                <ListGroup.Item>
+                <ListGroup.Item key={feature.title}>
                   <b>{feature.title}:</b> {feature.value || NotApplicable.NA}
                 </ListGroup.Item>
               );

@@ -26,6 +26,7 @@ const CharacterFilms: React.FC<Props> = ({ films }) => {
                 className="d-flex justify-content-between align-items-start"
                 action
                 href={`/movie/${film?.id}`}
+                key={film?.id}
               >
                 <div className="ms-2 me-auto">
                   <div className="fw-bold">{film?.title}</div>
