@@ -3,6 +3,7 @@ import { Badge, ListGroup } from "react-bootstrap";
 import { FragmentType, useFragment } from "../../../gql";
 import { CharacterFragment } from "../../../graphqlSchemas/graphqlSchemas";
 import { CharacterFeaturesTitle, NotApplicable } from "../../../types/enums";
+import CharacterFeatures from "../../../shared/CharacterFeatures";
 
 interface Props {
   characters: Array<FragmentType<typeof CharacterFragment> | null>;
@@ -26,36 +27,7 @@ const CharactersList: React.FC<Props> = (props) => {
             <div className="ms-2 me-auto w-100">
               <div className="fw-bold">{character.name}</div>
               <div className="my-2 fst-italic">
-                <div className="d-flex justify-content-between flex-wrap">
-                  <ListGroup className="character__feature">
-                    <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.Gender}:</b> {character.gender || NotApplicable.NA}
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.Height}:</b> {character.height || NotApplicable.NA}
-                    </ListGroup.Item>
-                  </ListGroup>
-                  <ListGroup className="character__feature">
-                    <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.EyeColor}:</b>{" "}
-                      {character.eyeColor || NotApplicable.NA}
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.HairColor}:</b>{" "}
-                      {character.hairColor || NotApplicable.NA}
-                    </ListGroup.Item>
-                  </ListGroup>
-                  <ListGroup className="character__feature">
-                    <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.HomeWorld}:</b>{" "}
-                      {character.homeworld?.name || NotApplicable.NA}
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <b>{CharacterFeaturesTitle.SpeciesName}:</b>{" "}
-                      {character.species?.name || NotApplicable.NA}
-                    </ListGroup.Item>
-                  </ListGroup>
-                </div>
+                <CharacterFeatures character={character} />
               </div>
             </div>
             <Badge

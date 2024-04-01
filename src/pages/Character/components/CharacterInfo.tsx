@@ -1,8 +1,8 @@
 import React from "react";
 import { FragmentType, useFragment } from "../../../gql";
 import { CharacterFragment } from "../../../graphqlSchemas/graphqlSchemas";
-import { Card, ListGroup, Badge } from "react-bootstrap";
-import { CharacterFeaturesTitle, NotApplicable } from "../../../types/enums";
+import { Card, Badge } from "react-bootstrap";
+import CharacterFeatures from "../../../shared/CharacterFeatures";
 
 interface Props {
   character: FragmentType<typeof CharacterFragment>;
@@ -10,32 +10,6 @@ interface Props {
 
 const CharacterInfo: React.FC<Props> = (props) => {
   const character = useFragment(CharacterFragment, props.character);
-  const personFeatures = [
-    {
-      title: CharacterFeaturesTitle.Gender,
-      value: character.gender,
-    },
-    {
-      title: CharacterFeaturesTitle.Height,
-      value: character.height,
-    },
-    {
-      title: CharacterFeaturesTitle.EyeColor,
-      value: character.eyeColor,
-    },
-    {
-      title: CharacterFeaturesTitle.HairColor,
-      value: character.hairColor,
-    },
-    {
-      title: CharacterFeaturesTitle.HomeWorld,
-      value: character.homeworld?.name,
-    },
-    {
-      title: CharacterFeaturesTitle.SpeciesName,
-      value: character.species?.name,
-    },
-  ];
   return (
     <>
       <Card className="custom-card--dark mb-2">
@@ -49,15 +23,7 @@ const CharacterInfo: React.FC<Props> = (props) => {
       <Card className="custom-card--dark mb-2">
         <Card.Body>
           <Card.Subtitle className="mb-2">Features</Card.Subtitle>
-          <ListGroup>
-            {personFeatures.map((feature) => {
-              return (
-                <ListGroup.Item key={feature.title}>
-                  <b>{feature.title}:</b> {feature.value || NotApplicable.NA}
-                </ListGroup.Item>
-              );
-            })}
-          </ListGroup>
+          <CharacterFeatures character={character} isList />
         </Card.Body>
       </Card>
     </>
