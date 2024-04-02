@@ -1,9 +1,9 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
-import { FragmentType, useFragment } from "../../../gql";
-import { FilmFragment } from "../../../graphqlSchemas/graphqlSchemas";
-import { getYear } from "../../../helpers/helpers";
 import { Link } from "react-router-dom";
+import { FragmentType, useFragment } from "@/gql";
+import { FilmFragment } from "@/graphqlSchemas/graphqlSchemas";
+import { getYear } from "@/helpers/helpers";
 
 interface Props {
   film: FragmentType<typeof FilmFragment>;

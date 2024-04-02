@@ -1,8 +1,8 @@
 import React from "react";
-import { FragmentType, useFragment } from "../../../gql";
-import { CharacterFragment } from "../../../graphqlSchemas/graphqlSchemas";
 import { Card, Badge } from "react-bootstrap";
-import CharacterFeatures from "../../../shared/CharacterFeatures";
+import { FragmentType, useFragment } from "@/gql";
+import { CharacterFragment } from "@/graphqlSchemas/graphqlSchemas";
+import CharacterFeatures from "@/shared/CharacterFeatures";
 
 interface Props {
   character: FragmentType<typeof CharacterFragment>;

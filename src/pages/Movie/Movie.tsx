@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import Loader from "../../shared/Loader";
-import { getYear } from "../../helpers/helpers";
 import { Card } from "react-bootstrap";
+import Loader from "@/shared/Loader";
+import { getYear } from "@/helpers/helpers";
+import { oneMovieOptions } from "@/queries/queriesOptions";
 import CharactersList from "./components/CharactersList";
-import { oneMovieOptions } from "../../queries/queriesOptions";
 
 const Movie: React.FC = () => {
   const params = useParams();

@@ -1,9 +1,9 @@
 import React from "react";
 import { Badge, ListGroup } from "react-bootstrap";
-import { FragmentType, useFragment } from "../../../gql";
-import { CharacterFragment } from "../../../graphqlSchemas/graphqlSchemas";
-import CharacterFeatures from "../../../shared/CharacterFeatures";
 import { Link } from "react-router-dom";
+import { FragmentType, useFragment } from "@/gql";
+import { CharacterFragment } from "@/graphqlSchemas/graphqlSchemas";
+import CharacterFeatures from "@/shared/CharacterFeatures";
 
 interface Props {
   characters: Array<FragmentType<typeof CharacterFragment> | null>;

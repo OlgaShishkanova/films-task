@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, ListGroup, Badge } from "react-bootstrap";
-import { getYear } from "../../../helpers/helpers";
 import { Link } from "react-router-dom";
+import { getYear } from "@/helpers/helpers";
 
 interface Props {
   films: Array<Film | null>;

@@ -1,12 +1,12 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ListGroup } from "react-bootstrap";
+import Loader from "@/shared/Loader";
+import { allMoviesOptions } from "@/queries/queriesOptions";
 import MoviesListItem from "./components/MoviesListItem";
-import Loader from "../../shared/Loader";
-import { allMoviesOptions } from "../../queries/queriesOptions";
 
 const MoviesList: React.FC = () => {
-  const { data, isLoading } = useQuery(allMoviesOptions())
+  const { data, isLoading } = useQuery(allMoviesOptions());
 
   return (
     <>

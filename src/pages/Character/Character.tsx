@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import Loader from "../../shared/Loader";
+import Loader from "@/shared/Loader";
+import { oneCharacterOptions } from "@/queries/queriesOptions";
 import CharacterInfo from "./components/CharacterInfo";
 import CharacterFilms from "./components/CharacterFilms";
-import { oneCharacterOptions } from "../../queries/queriesOptions";
 
 const Character: React.FC = () => {
   const params = useParams();
