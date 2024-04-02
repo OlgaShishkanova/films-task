@@ -1,8 +1,7 @@
 import React from "react";
-import { FilmFragment } from "../../../graphqlSchemas/graphqlSchemas";
-import { FragmentType } from "../../../gql";
 import { Card, ListGroup, Badge } from "react-bootstrap";
 import { getYear } from "../../../helpers/helpers";
+import { Link } from "react-router-dom";
 
 interface Props {
   films: Array<Film | null>;
@@ -22,10 +21,9 @@ const CharacterFilms: React.FC<Props> = ({ films }) => {
         <ListGroup>
           {films.map((film) => {
             return (
-              <ListGroup.Item
-                className="d-flex justify-content-between align-items-start"
-                action
-                href={`/movie/${film?.id}`}
+              <Link
+                className="list-group-item list-group-item-action d-flex justify-content-between align-items-start"
+                to={`/movie/${film?.id}`}
                 key={film?.id}
               >
                 <div className="ms-2 me-auto">
@@ -37,7 +35,7 @@ const CharacterFilms: React.FC<Props> = ({ films }) => {
                 <Badge bg="secondary" text="primary" pill>
                   {getYear(film?.releaseDate)}
                 </Badge>
-              </ListGroup.Item>
+              </Link>
             );
           })}
         </ListGroup>

@@ -1,16 +1,23 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavigationBar: React.FC = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">Star Wars</Navbar.Brand>
+        <Link className="navbar-brand" to="/">
+          Star Wars
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/movies-list">Star Wars Movies</Nav.Link>
-            <Nav.Link href="/characters">Characters</Nav.Link>
+            <Link className="nav-link" to="/movies-list">
+              Star Wars Movies
+            </Link>
+            <Link className="nav-link" to="/characters">
+              Characters
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

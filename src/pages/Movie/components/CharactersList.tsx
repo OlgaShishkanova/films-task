@@ -2,8 +2,8 @@ import React from "react";
 import { Badge, ListGroup } from "react-bootstrap";
 import { FragmentType, useFragment } from "../../../gql";
 import { CharacterFragment } from "../../../graphqlSchemas/graphqlSchemas";
-import { CharacterFeaturesTitle, NotApplicable } from "../../../types/enums";
 import CharacterFeatures from "../../../shared/CharacterFeatures";
+import { Link } from "react-router-dom";
 
 interface Props {
   characters: Array<FragmentType<typeof CharacterFragment> | null>;
@@ -18,10 +18,9 @@ const CharactersList: React.FC<Props> = (props) => {
     <ListGroup className="character__list-group">
       {characters.map((character) => {
         return (
-          <ListGroup.Item
-            className="d-flex justify-content-between align-items-start"
-            action
-            href={`/character/${character.id}`}
+          <Link
+            className="list-group-item list-group-item-action d-flex justify-content-between align-items-start"
+            to={`/character/${character.id}`}
             key={character.id}
           >
             <div className="ms-2 me-auto w-100">
@@ -38,7 +37,7 @@ const CharactersList: React.FC<Props> = (props) => {
             >
               Birth: {character.birthYear}
             </Badge>
-          </ListGroup.Item>
+          </Link>
         );
       })}
     </ListGroup>

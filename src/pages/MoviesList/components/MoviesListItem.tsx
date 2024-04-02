@@ -1,8 +1,9 @@
 import React from "react";
-import { Badge, ListGroup } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import { FragmentType, useFragment } from "../../../gql";
 import { FilmFragment } from "../../../graphqlSchemas/graphqlSchemas";
 import { getYear } from "../../../helpers/helpers";
+import { Link } from "react-router-dom";
 
 interface Props {
   film: FragmentType<typeof FilmFragment>;
@@ -11,10 +12,9 @@ interface Props {
 const MoviesListItem: React.FC<Props> = (props) => {
   const film = useFragment(FilmFragment, props.film);
   return (
-    <ListGroup.Item
-      className="d-flex justify-content-between align-items-start"
-      action
-      href={`/movie/${film.id}`}
+    <Link
+      className="list-group-item list-group-item-action d-flex justify-content-between align-items-start"
+      to={`/movie/${film.id}`}
     >
       <div className="ms-2 me-auto">
         <div className="fw-bold">{film.title}</div>
@@ -24,7 +24,7 @@ const MoviesListItem: React.FC<Props> = (props) => {
       <Badge bg="secondary" text="primary" pill>
         {getYear(film.releaseDate)}
       </Badge>
-    </ListGroup.Item>
+    </Link>
   );
 };
 
