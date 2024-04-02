@@ -1,27 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import request from "graphql-request";
-import { oneFilmQueryDocument } from "../../graphqlSchemas/graphqlSchemas";
 import Loader from "../../shared/Loader";
 import { getYear } from "../../helpers/helpers";
 import { Card } from "react-bootstrap";
 import CharactersList from "./components/CharactersList";
+import { oneMovieOptions } from "../../queries/queriesOptions";
 
 const Movie: React.FC = () => {
   const params = useParams();
   const id = params.id;
-  const { data, isLoading } = useQuery({
-    queryKey: ["one-film", id],
-    queryFn: async () => {
-      return request(
-        "https://swapi-graphql.netlify.app/.netlify/functions/index",
-        oneFilmQueryDocument,
-        { id }
-      );
-    },
-    enabled: !!id,
-  });
+  const { data, isLoading } = useQuery(oneMovieOptions(id));
 
   if (!data && !isLoading) {
     return <div>No Such Film</div>;

@@ -5,9 +5,15 @@ export enum CharacterFeaturesTitle {
   HairColor = "Hair Color",
   HomeWorld = "Home World",
   SpeciesName = "Species Name",
-  NA = "N/A"
+  NA = "N/A",
 }
 
 export enum NotApplicable {
-  NA = "N/A"
+  NA = "N/A",
+}
+
+export enum ApiQuery {
+  MoviesAll = "movies",
+  OneMovie = "one-movie",
+  OneCharacter = "one-character",
 }

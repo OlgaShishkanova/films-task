@@ -1,21 +1,12 @@
 import React from "react";
-import { allFilmsQueryDocument } from "../../graphqlSchemas/graphqlSchemas";
 import { useQuery } from "@tanstack/react-query";
-import request from "graphql-request";
 import { ListGroup } from "react-bootstrap";
 import MoviesListItem from "./components/MoviesListItem";
 import Loader from "../../shared/Loader";
+import { allMoviesOptions } from "../../queries/queriesOptions";
 
 const MoviesList: React.FC = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["films"],
-    queryFn: async () => {
-      return request(
-        "https://swapi-graphql.netlify.app/.netlify/functions/index",
-        allFilmsQueryDocument
-      );
-    },
-  });
+  const { data, isLoading } = useQuery(allMoviesOptions())
 
   return (
     <>
