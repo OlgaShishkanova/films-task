@@ -1,14 +1,15 @@
 .home {
-  background: black
-    url("https://e1.pxfuel.com/desktop-wallpaper/549/675/desktop-wallpaper-star-wars-star-backgrounds-%C2%B7%E2%91%A0-star-background.jpg")
-    repeat content-box;
+  background-color: black;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9b/Star_Wars_Yellow_Logo.svg"),
+    url("https://e1.pxfuel.com/desktop-wallpaper/549/675/desktop-wallpaper-star-wars-star-backgrounds-%C2%B7%E2%91%A0-star-background.jpg");
+  background-repeat: no-repeat, repeat;
+  background-size: 100%, auto;
+  background-size: 90%, auto;
+  background-position: center, 0% 0%;
   min-height: 100vh;
   &__info {
     padding: 2rem 4rem;
-    position: absolute;
-    max-width: 50%;
-    top: 30%;
-    right: 20%;
+    width: 50%;
     border-radius: 1rem;
     background-color: rgb(255, 232, 31, 0.9);
     color: $black;
@@ -59,30 +60,11 @@
   }
 }
 
-@media only screen and (max-width: 1230px) {
+@media only screen and (max-width: 1200px), screen and (max-height: 480px) {
   .home {
+    background-position: center 10%, 0% 0%;
     &__info {
-      max-width: 100%;
-      left: 5%;
-      right: 5%;
-    }
-  }
-}
-@media only screen and (max-height: 750px) {
-  .home {
-    &__info {
-      top: 5%;
-      max-width: 100%;
-      left: 5%;
-      right: 5%;
-    }
-  }
-}
-@media only screen and (max-height: 470px), screen and (max-width: 480px) {
-  .home {
-    &__info {
-      position: static;
-      margin-top: 2rem;
+      width: 100%;
       padding: 2rem;
     }
   }

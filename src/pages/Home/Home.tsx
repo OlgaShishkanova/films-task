@@ -1,15 +1,11 @@
 import React from "react";
-import { Container, Image } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
     <div className="home">
       <Container className="p-5">
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Star_Wars_Yellow_Logo.svg"
-          fluid
-        />
         <div className="home__info">
           <h1>Welcome to Star Wars Wiki</h1>
           <p>
