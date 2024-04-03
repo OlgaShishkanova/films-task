@@ -41,6 +41,27 @@ export const CharacterFragment = graphql(`
   }
 `);
 
+export const CharacterSmallFragment = graphql(`
+  fragment CharacterSmallItem on Person {
+    birthYear
+    id
+    name
+  }
+`);
+
+export const allCharactersQueryDocument = graphql(`
+  query allCharactersQuery {
+    allPeople {
+      edges {
+        node {
+          ...CharacterSmallItem
+        }
+        cursor
+      }
+    }
+  }
+`);
+
 export const oneFilmQueryDocument = graphql(`
   query oneFilmQuery($id: ID) {
     film(id: $id) {

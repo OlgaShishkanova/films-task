@@ -14,6 +14,7 @@ export enum NotApplicable {
 
 export enum ApiQuery {
   MoviesAll = "movies",
+  CharactersAll = "characters",
   OneMovie = "one-movie",
   OneCharacter = "one-character",
 }

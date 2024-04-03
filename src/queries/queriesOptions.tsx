@@ -1,6 +1,7 @@
 import { queryOptions } from "@tanstack/react-query";
 import request from "graphql-request";
 import {
+  allCharactersQueryDocument,
   allFilmsQueryDocument,
   oneCharacterQueryDocument,
   oneFilmQueryDocument,
@@ -17,6 +18,16 @@ export const allMoviesOptions = () => {
     },
   });
 };
+
+export const allCharactersOptions = () => {
+  return queryOptions({
+    queryKey: [ApiQuery.CharactersAll],
+    queryFn: async () => {
+      return request(API_URL, allCharactersQueryDocument);
+    },
+  });
+};
+
 
 export const oneMovieOptions = (id?: string) => {
   return queryOptions({

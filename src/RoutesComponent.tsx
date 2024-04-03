@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import MoviesList from "./pages/MoviesList/MoviesList";
 import Movie from "./pages/Movie/Movie";
 import Character from "./pages/Character/Character";
+import CharactersList from "./pages/CharactersList/CharactersList";
 
 const RoutesComponent: React.FC = () => {
   return (
@@ -23,6 +24,14 @@ const RoutesComponent: React.FC = () => {
           element={
             <MainLayout>
               <Movie />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/characters"
+          element={
+            <MainLayout>
+              <CharactersList />
             </MainLayout>
           }
         />
