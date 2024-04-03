@@ -1,16 +1,11 @@
 import React from "react";
-import { Card, ListGroup, Badge } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { getYear } from "@/helpers/helpers";
+import { Card, ListGroup } from "react-bootstrap";
+import { FragmentType } from "@/gql";
+import { FilmFragment } from "@/graphqlSchemas/graphqlSchemas";
+import MoviesListItem from "@/shared/MovieItem";
 
 interface Props {
-  films: Array<Film | null>;
-}
-interface Film {
-  title?: string | null;
-  director?: string | null;
-  releaseDate?: string | null;
-  id: string;
+  films: Array<FragmentType<typeof FilmFragment> | null>;
 }
 
 const CharacterFilms: React.FC<Props> = ({ films }) => {
@@ -20,23 +15,7 @@ const CharacterFilms: React.FC<Props> = ({ films }) => {
         <Card.Subtitle className="mb-2">Appeared in Movies</Card.Subtitle>
         <ListGroup>
           {films.map((film) => {
-            return (
-              <Link
-                className="list-group-item list-group-item-action d-flex justify-content-between align-items-start"
-                to={`/movie/${film?.id}`}
-                key={film?.id}
-              >
-                <div className="ms-2 me-auto">
-                  <div className="fw-bold">{film?.title}</div>
-                  <div className="my-2 fst-italic">
-                    Director: {film?.director}
-                  </div>
-                </div>
-                <Badge bg="secondary" text="primary" pill>
-                  {getYear(film?.releaseDate)}
-                </Badge>
-              </Link>
-            );
+            return film ? <MoviesListItem film={film} /> : null;
           })}
         </ListGroup>
       </Card.Body>

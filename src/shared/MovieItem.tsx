@@ -7,9 +7,10 @@ import { getYear } from "@/helpers/helpers";
 
 interface Props {
   film: FragmentType<typeof FilmFragment>;
+  openingCrawl?: string | null;
 }
 
-const MoviesListItem: React.FC<Props> = (props) => {
+const MovieItem: React.FC<Props> = (props) => {
   const film = useFragment(FilmFragment, props.film);
   return (
     <Link
@@ -19,7 +20,7 @@ const MoviesListItem: React.FC<Props> = (props) => {
       <div className="ms-2 me-auto">
         <div className="fw-bold">{film.title}</div>
         <div className="my-2 fst-italic">Director: {film.director}</div>
-        {film.openingCrawl}
+        {props.openingCrawl}
       </div>
       <Badge bg="secondary" text="primary" pill>
         {getYear(film.releaseDate)}
@@ -28,4 +29,4 @@ const MoviesListItem: React.FC<Props> = (props) => {
   );
 };
 
-export default MoviesListItem;
+export default MovieItem;

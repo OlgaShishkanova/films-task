@@ -5,7 +5,6 @@ export const FilmFragment = graphql(`
     id
     title
     releaseDate
-    openingCrawl
     director
   }
 `);
@@ -15,6 +14,7 @@ export const allFilmsQueryDocument = graphql(`
     allFilms {
       edges {
         node {
+          openingCrawl
           ...FilmItem
         }
         cursor
@@ -86,10 +86,7 @@ export const oneCharacterQueryDocument = graphql(`
       ...CharacterItem
       filmConnection {
         films {
-          title
-          director
-          releaseDate
-          id
+          ...FilmItem
         }
       }
     }

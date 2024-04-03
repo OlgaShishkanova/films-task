@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ListGroup } from "react-bootstrap";
 import Loader from "@/shared/Loader";
 import { allMoviesOptions } from "@/queries/queriesOptions";
-import MoviesListItem from "./components/MoviesListItem";
+import MoviesListItem from "../../shared/MovieItem";
 
 const MoviesList: React.FC = () => {
   const { data, isLoading } = useQuery(allMoviesOptions());
@@ -16,7 +16,11 @@ const MoviesList: React.FC = () => {
           {data.allFilms?.edges?.map((edge) => {
             const node = edge?.node;
             return node ? (
-              <MoviesListItem film={node} key={edge.cursor} />
+              <MoviesListItem
+                film={node}
+                openingCrawl={node.openingCrawl}
+                key={edge.cursor}
+              />
             ) : null;
           })}
         </ListGroup>
