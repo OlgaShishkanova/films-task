@@ -3,6 +3,7 @@ import { Card, Badge } from "react-bootstrap";
 import { FragmentType, useFragment } from "@/gql";
 import { CharacterFragment } from "@/graphqlSchemas/graphqlSchemas";
 import CharacterFeatures from "@/shared/CharacterFeatures";
+import { CharacterFeaturesTitle } from "@/types/enums";
 
 interface Props {
   character: FragmentType<typeof CharacterFragment>;
@@ -16,7 +17,7 @@ const CharacterInfo: React.FC<Props> = (props) => {
         <Card.Body className="d-flex align-items-center justify-content-between">
           <Card.Title className="mb-0">{character.name}</Card.Title>
           <Badge bg="secondary" text="primary" pill>
-            Birth: {character.birthYear}
+            {CharacterFeaturesTitle.Birth}: {character.birthYear}
           </Badge>
         </Card.Body>
       </Card>

@@ -3,6 +3,7 @@ import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FragmentType, useFragment } from "@/gql";
 import { CharacterSmallFragment } from "@/graphqlSchemas/graphqlSchemas";
+import { CharacterFeaturesTitle } from "@/types/enums";
 
 interface Props {
   character: FragmentType<typeof CharacterSmallFragment>;
@@ -19,7 +20,7 @@ const CharactersListItem: React.FC<Props> = (props) => {
         <div className="fw-bold">{character.name}</div>
       </div>
       <Badge bg="secondary" text="primary" pill>
-        Birth: {character.birthYear}
+        {CharacterFeaturesTitle.Birth}: {character.birthYear}
       </Badge>
     </Link>
   );

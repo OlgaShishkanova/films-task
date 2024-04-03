@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FragmentType, useFragment } from "@/gql";
 import { CharacterFragment } from "@/graphqlSchemas/graphqlSchemas";
 import CharacterFeatures from "@/shared/CharacterFeatures";
+import { CharacterFeaturesTitle } from "@/types/enums";
 
 interface Props {
   characters: Array<FragmentType<typeof CharacterFragment> | null>;
@@ -35,7 +36,7 @@ const CharactersList: React.FC<Props> = (props) => {
               pill
               className="badge--absolute"
             >
-              Birth: {character.birthYear}
+              {CharacterFeaturesTitle.Birth}: {character.birthYear}
             </Badge>
           </Link>
         );

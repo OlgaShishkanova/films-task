@@ -5,7 +5,7 @@ export enum CharacterFeaturesTitle {
   HairColor = "Hair Color",
   HomeWorld = "Home World",
   SpeciesName = "Species Name",
-  NA = "N/A",
+  Birth = "Birth"
 }
 
 export enum NotApplicable {
