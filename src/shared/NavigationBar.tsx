@@ -16,7 +16,7 @@ const NavigationBar: React.FC = () => {
               Star Wars Movies
             </Link>
             <Link className="nav-link" to="/characters">
-              Characters
+              Star Wars Characters
             </Link>
           </Nav>
         </Navbar.Collapse>

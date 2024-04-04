@@ -24,10 +24,10 @@ const Home: React.FC = () => {
             Star Wars is one of the highest-grossing media franchises of all
             time.
           </p>
-          <p>Prepare to know much more about Star Wars!</p>
+          <p>Prepare to learn much more about Star Wars!</p>
           <div>
             <hr />
-            <h3>Check our awesome content</h3>
+            <h3>Check out our awesome content</h3>
             <ul className="home__links">
               <li>
                 <Link to="/movies-list">Star Wars Movies</Link>
