@@ -2,7 +2,8 @@ import React from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import { FragmentType } from "@/gql";
 import { FilmFragment } from "@/graphqlSchemas/graphqlSchemas";
-import MoviesListItem from "@/shared/MovieItem";
+import MovieItem from "@/shared/MovieItem";
+import { FilmItemFragment } from "@/gql/graphql";
 
 interface Props {
   films: Array<FragmentType<typeof FilmFragment> | null>;
@@ -15,7 +16,9 @@ const CharacterFilms: React.FC<Props> = ({ films }) => {
         <Card.Subtitle className="mb-2">Appeared in Movies</Card.Subtitle>
         <ListGroup>
           {films.map((film) => {
-            return film ? <MoviesListItem film={film} /> : null;
+            return film ? (
+              <MovieItem film={film} key={(film as FilmItemFragment).id} />
+            ) : null;
           })}
         </ListGroup>
       </Card.Body>
