@@ -5,6 +5,9 @@ import Loader from "@/shared/Loader";
 import CharactersListItem from "./components/CharactersListItem";
 import { allCharactersOptions } from "@/queries/queriesOptions";
 
+// When the list here is even longer or each item takes more space, then we can use an "infinite scroll" here.
+// https://tanstack.com/query/latest/docs/framework/react/guides/infinite-queries
+
 const CharactersList: React.FC = () => {
   const { data, isLoading } = useQuery(allCharactersOptions());
 
