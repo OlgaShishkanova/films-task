@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
@@ -7,7 +7,13 @@ const Home: React.FC = () => {
     <div className="home">
       <Container className="p-5">
         <div className="home__info">
-          <h1>Welcome to Star Wars Wiki</h1>
+          <div className="d-flex align-items-center justify-content-between">
+            <h1 className="me-2">Welcome to Star Wars Wiki</h1>
+            <Image
+              width={100}
+              src="https://media.tenor.com/ONv6f0zBNFYAAAAj/hugging-grogu.gif"
+            />
+          </div>
           <p>
             Star Wars is an American epic space opera media franchise created by
             George Lucas, which began with the eponymous 1977 film and quickly
