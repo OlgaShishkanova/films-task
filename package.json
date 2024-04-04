@@ -52,12 +52,16 @@
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/client-preset": "^4.2.4",
     "@parcel/watcher": "^2.4.1",
+    "msw": "^2.2.13",
     "sass": "^1.72.0",
     "ts-node": "^10.9.2"
   },
   "jest": {
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
-    }
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(@bundled-es-modules)/).*/"
+    ]
   }
 }

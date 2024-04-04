@@ -15,9 +15,7 @@ const MoviesList: React.FC = () => {
         <ListGroup as="ol" numbered>
           {data.allFilms?.edges?.map((edge) => {
             const node = edge?.node;
-            return node ? (
-              <MovieItem film={node} key={edge.cursor} />
-            ) : null;
+            return node ? <MovieItem film={node} key={edge.cursor} /> : null;
           })}
         </ListGroup>
       ) : (
